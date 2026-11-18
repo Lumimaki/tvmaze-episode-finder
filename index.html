@@ -1,27 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVmaze Episode Finder</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+    <header class="site-header page-width">
+        <div class="wordmark">
+            <span class="brand-icon" aria-hidden="true"><span></span></span>
+            Episode Finder
+        </div>
+        <p class="attribution">Powered by TVmaze</p>
+    </header>
 
-    <h1>TV Series Episode Finder</h1>
+    <main class="page-width">
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-art" aria-hidden="true">
+                <div class="hero-screen"><span></span></div>
+            </div>
+            <div class="hero-content">
+                <h1 id="page-title">Find your next <em>episode.</em></h1>
+                <p>Search for a TV series and see its episodes, seasons, and titles.</p>
 
-    <p>Search for your favorite TV series and find its episodes!</p>
+                <form id="searchForm" role="search">
+                    <label class="visually-hidden" for="searchInput">TV series name</label>
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input type="search" id="searchInput" placeholder="Search a TV series…" required>
+                    <button type="submit">Search <span aria-hidden="true">→</span></button>
+                </form>
+            </div>
+        </section>
 
-    <input type="text" id="searchInput"
-           placeholder="Enter a TV series name">
+        <div class="workspace">
+            <section class="panel" aria-labelledby="results-heading">
+                <header class="panel-header">
+                    <h2 id="results-heading">Search results</h2>
+                    <span class="panel-count" id="resultCount" hidden></span>
+                </header>
+                <div class="panel-body" id="results" aria-busy="false"></div>
+                <p class="panel-message" id="resultsMessage" role="status">Search for a series to see matching shows.</p>
+            </section>
 
-    <button id="searchButton">Search</button>
-
-    <h2>Search Results</h2>
-    <div id="results"></div>
-
-    <h2>Episodes</h2>
-    <div id="episodes"></div>
+            <section class="panel" id="episode-panel" aria-labelledby="episodes-heading">
+                <header class="panel-header">
+                    <h2 id="episodes-heading" tabindex="-1">Episodes</h2>
+                    <span class="panel-count" id="episodeCount" hidden></span>
+                </header>
+                <div class="panel-body" id="episodes" aria-busy="false"></div>
+                <p class="panel-message" id="episodesMessage" role="status">Choose a show to see its episodes.</p>
+            </section>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
